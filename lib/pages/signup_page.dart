@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login_ui_kit/models/city.dart';
 
 class SignupPage extends StatefulWidget {
   SignupPage({super.key});
@@ -29,24 +30,24 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  String? dropdownButtonValue;
+  City? dropdownButtonValue;
 
   final items = [
-    const DropdownMenuItem(
-      value: 'Islamabad',
-      child: Text('Islamabad'),
+    DropdownMenuItem(
+      value: City(id: 1, name: 'Islamabad'),
+      child: const Text('Islamabad'),
     ),
-    const DropdownMenuItem(
-      value: 'rwp',
-      child: Text('Rawalpindi'),
+    DropdownMenuItem(
+      value: City(id: 2, name: 'Rawalpindi'),
+      child: const Text('Rawalpindi'),
     ),
-    const DropdownMenuItem(
-      value: 'Lahore',
-      child: Text('Lahore'),
+    DropdownMenuItem(
+      value: City(id: 3, name: 'Lahore'),
+      child: const Text('Lahore'),
     ),
-    const DropdownMenuItem(
-      value: 'Karachi',
-      child: Text('KHI'),
+    DropdownMenuItem(
+      value: City(id: 4, name: 'Karachi'),
+      child: const Text('Karachi'),
     ),
   ];
 
@@ -117,13 +118,13 @@ class _SignupPageState extends State<SignupPage> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  DropdownButtonFormField<String>(
+                  DropdownButtonFormField<City>(
                     value: dropdownButtonValue,
                     items: items,
                     onChanged: (value) {
                       setState(() {
                         dropdownButtonValue = value;
-                        print('object $dropdownButtonValue');
+                        print('object ${dropdownButtonValue!.id}');
                       });
                     },
                     validator: (value) {
