@@ -9,8 +9,12 @@ class SignupPage extends StatefulWidget {
   State<SignupPage> createState() => _SignupPageState();
 }
 
+enum Gender { male, female, other }
+
 class _SignupPageState extends State<SignupPage> {
   bool? minorityCheck = false;
+
+  Gender? _defaultGender = Gender.male;
 
   final cBorder = OutlineInputBorder(
     borderRadius: BorderRadius.circular(10.r),
@@ -96,11 +100,56 @@ class _SignupPageState extends State<SignupPage> {
                     ],
                   ),
                   SizedBox(height: 20.h),
+                  // ListTile(
+                  //   title: Checkbox(
+                  //     value: true,
+                  //     onChanged: (value) {},
+                  //   ),
+                  // ),
+                  Row(
+                    children: [
+                      Radio<Gender>(
+                        // title: const Text('Male'),
+                        value: Gender.male,
+                        groupValue: _defaultGender,
+                        onChanged: (genderValue) {
+                          setState(() {
+                            _defaultGender = genderValue;
+                          });
+                        },
+                      ),
+                      Text('Male'),
+                      Radio<Gender>(
+                        // title: const Text('Female'),
+                        value: Gender.female,
+                        groupValue: _defaultGender,
+                        onChanged: (genderValue) {
+                          setState(() {
+                            _defaultGender = genderValue;
+                          });
+                        },
+                      ),
+                      Text('Female'),
+                      Radio<Gender>(
+                        // title: const Text('Other'),
+                        value: Gender.other,
+                        groupValue: _defaultGender,
+                        onChanged: (genderValue) {
+                          setState(() {
+                            _defaultGender = genderValue;
+                          });
+                        },
+                      ),
+                      Text('Other')
+                    ],
+                  ),
                   CheckboxListTile(
                     title: const Text('Minority'),
                     value: minorityCheck,
-                    onChanged: (value) {
-                      minorityCheck = value;
+                    onChanged: (minorityCheckValue) {
+                      setState(() {
+                        minorityCheck = minorityCheckValue;
+                      });
                     },
                     controlAffinity: ListTileControlAffinity.trailing,
                   ),
