@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:login_ui_kit/pages/recipe_page.dart';
 import 'package:login_ui_kit/widgets/home_card.dart';
 
 import 'pages/signup_page.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         // home: SignupPage(),
-        home: HomeCard(),
+        home: RecipePage(),
       ),
     );
   }
