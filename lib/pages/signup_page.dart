@@ -36,24 +36,7 @@ class _SignupPageState extends State<SignupPage> {
 
   City? dropdownButtonValue;
 
-  final items = [
-    DropdownMenuItem(
-      value: City(id: 1, name: 'Islamabad'),
-      child: const Text('Islamabad'),
-    ),
-    DropdownMenuItem(
-      value: City(id: 2, name: 'Rawalpindi'),
-      child: const Text('Rawalpindi'),
-    ),
-    DropdownMenuItem(
-      value: City(id: 3, name: 'Lahore'),
-      child: const Text('Lahore'),
-    ),
-    DropdownMenuItem(
-      value: City(id: 4, name: 'Karachi'),
-      child: const Text('Karachi'),
-    ),
-  ];
+  List<DropdownMenuItem<City>>? items = [];
 
   final _formKey = GlobalKey<FormState>();
 
@@ -217,5 +200,34 @@ class _SignupPageState extends State<SignupPage> {
         ),
       ),
     );
+  }
+
+  @override
+  void initState() {
+    initData();
+    super.initState();
+  }
+
+  void initData() {
+    //
+    items = [
+      DropdownMenuItem(
+        value: City(id: 1, name: 'Islamabad'),
+        child: const Text('Islamabad'),
+      ),
+      DropdownMenuItem(
+        value: City(id: 2, name: 'Rawalpindi'),
+        child: const Text('Rawalpindi'),
+      ),
+      DropdownMenuItem(
+        value: City(id: 3, name: 'Lahore'),
+        child: const Text('Lahore'),
+      ),
+      DropdownMenuItem(
+        value: City(id: 4, name: 'Karachi'),
+        child: const Text('Karachi'),
+      ),
+    ];
+    setState(() {});
   }
 }
