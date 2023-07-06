@@ -34,9 +34,9 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 
-  City? dropdownButtonValue;
+  City? cityDropdownMenuItemValue;
 
-  List<DropdownMenuItem<City>>? items = [];
+  List<DropdownMenuItem<City>>? cityDropdownMenuItemList = [];
 
   final _formKey = GlobalKey<FormState>();
 
@@ -151,11 +151,11 @@ class _SignupPageState extends State<SignupPage> {
                     height: 10.h,
                   ),
                   DropdownButtonFormField<City>(
-                    value: dropdownButtonValue,
-                    items: items,
+                    value: cityDropdownMenuItemValue,
+                    items: cityDropdownMenuItemList,
                     onChanged: (value) {
                       setState(() {
-                        dropdownButtonValue = value;
+                        cityDropdownMenuItemValue = value;
                         // print('object ${dropdownButtonValue!.id}');
                       });
                     },
@@ -210,7 +210,7 @@ class _SignupPageState extends State<SignupPage> {
 
   void initData() {
     //
-    items = [
+    cityDropdownMenuItemList = [
       DropdownMenuItem(
         value: City(id: 1, name: 'Islamabad'),
         child: const Text('Islamabad'),
